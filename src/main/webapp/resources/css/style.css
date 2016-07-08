@@ -102,3 +102,14 @@ h3 {
 	margin-top: 10px;
 	text-align: right;
 }
+button {
+	display: inline-block;
+	padding: 7px 15px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	color: #666;
+	cursor: pointer;
+}
+button:hover {
+	border: 1px solid #999;
+}

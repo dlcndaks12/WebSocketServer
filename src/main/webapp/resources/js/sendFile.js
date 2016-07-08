@@ -22,14 +22,16 @@ function fileConnect() {
 	fileWebSocket = new WebSocket("ws://192.168.0.186:19080/fileUpload");
 	fileWebSocket.binaryType="blob";
 	fileWebSocket.onopen = function() {
-		statusArea.text("Connected ...");
+		console.log("Connected ...");
+		fileSend();
 	}
 	
 	fileWebSocket.onmessage = function(e) {
 		bi += parseInt(e.data);
 		
 		var progress = (bi/file[upFile].size) * 100;
-		$(".file_list > li .progress").eq(upFile).children(".bar").css("width", progress+"%");
+		var progressBar = $(".file_list > li .progress").eq(upFile).children(".bar");
+		progressBar.css("width", progress+"%");
 		
 		if(fs.currentSlice < fs.slices ) {
 			fileWebSocket.send(fs.getNextSlice());
@@ -37,6 +39,7 @@ function fileConnect() {
 			
 			if (progress == 100) {
 				fileWebSocket.send("end");
+				progressBar.css("background-color", "#44c3ff");
 				bi = 0;
 				upFile++;
 				if(upFile < file.length) {
@@ -57,7 +60,7 @@ function fileConnect() {
 }
 function clickSend() {
 	upFile = 0;
-	fileSend();
+	fileConnect();
 }
 function fileSend() {
 	$(".file_list > li .progress").show();
@@ -73,7 +76,7 @@ function fileDisconnect() {
 }
 
 function FileSlicer(file) {
-    this.sliceSize = 1024;  
+    this.sliceSize = 1024 * 1024 / 200;  
     this.slices = Math.ceil(file.size / this.sliceSize);
 
     this.currentSlice = 0;

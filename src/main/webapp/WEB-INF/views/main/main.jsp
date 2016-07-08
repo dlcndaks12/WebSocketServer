@@ -23,8 +23,7 @@
 	
 	</ul>
 	<div class="btn_group">
-		<button type="button" id="fileConnect" onclick="fileConnect()">CONNECT</button>
-		<button type="button" id="clickSecd" onclick="fileSend()">SEND</button>
+		<button type="button" id="clickSecd" onclick="clickSend()">SEND</button>
 		<button type="button" id="fileDisconnect" onclick="fileDisconnect()">DISCONNECT</button>
 	</div>
 	<div class="statusArea"></div>
