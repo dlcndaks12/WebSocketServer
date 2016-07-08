@@ -63,8 +63,6 @@ public class WSFileUpload {
 			}
 		}
 		
-		System.out.println(msg.position());
-		
 		return msg.position();
 	}
 	

@@ -92,7 +92,11 @@ h3 {
 	display: block;
 	width: 0%;
 	height: 10px;
-	background-color: #3af;
+	background-color: #50ca3a;
+	-webkit-transition: background-color 1s;
+	-moz-transition: background-color 1s;
+	-ms-transition: background-color 1s;
+	transition: background-color 1s;
 }
 .btn_group { 
 	margin-top: 10px;

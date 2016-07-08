@@ -32,11 +32,10 @@ function fileConnect() {
 		$(".file_list > li .progress").eq(upFile).children(".bar").css("width", progress+"%");
 		
 		if(fs.currentSlice < fs.slices ) {
-			console.log("send");
 			fileWebSocket.send(fs.getNextSlice());
 		} else {
+			
 			if (progress == 100) {
-				console.log("end");
 				fileWebSocket.send("end");
 				bi = 0;
 				upFile++;
@@ -74,7 +73,7 @@ function fileDisconnect() {
 }
 
 function FileSlicer(file) {
-    this.sliceSize = 1024*1024;  
+    this.sliceSize = 1024;  
     this.slices = Math.ceil(file.size / this.sliceSize);
 
     this.currentSlice = 0;
