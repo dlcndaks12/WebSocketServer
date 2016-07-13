@@ -9,6 +9,8 @@ if (window.WebSocket){
 	console.log("BROWSER NOT SUPPORTED");
 }
 
+alert();
+
 /* ================================================================== */ 
   
 var fileWebSocket = null;
@@ -43,7 +45,7 @@ function fileConnect() {
 				bi = 0;
 				upFile++;
 				if(upFile < file.length) {
-					console.log("더있어요");
+					console.log("더없을걸");
 					fileSend();
 				}
 			}

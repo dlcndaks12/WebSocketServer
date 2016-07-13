@@ -15,10 +15,13 @@ import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
 
+import com.almond.ourproject.common.service.CommonProperties;
+
 @ServerEndpoint("/fileUpload")
 public class WSFileUpload {
 
-	final static String PATH = "D:\\WSFiles\\";
+	CommonProperties cp = new CommonProperties();
+	String PATH = cp.getProperties().getProperty("upload.path");
 	Session session = null;
 	String fileName = null;
 	File file = null;
