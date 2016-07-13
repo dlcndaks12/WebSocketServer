@@ -9,8 +9,6 @@ if (window.WebSocket){
 	console.log("BROWSER NOT SUPPORTED");
 }
 
-alert();
-
 /* ================================================================== */ 
   
 var fileWebSocket = null;
